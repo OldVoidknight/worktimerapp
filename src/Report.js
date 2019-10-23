@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Button from './Button';
 import Input from './Input';
 import Footer from './Footer';
-
+import API from './API';
 
 function Report(props){
 
@@ -55,7 +55,7 @@ function Report(props){
         form.append('dd',props)
         form.append('ssi',getcookie('_appcookie'))
         form.append('uid','3')
-        fetch('http://172.16.9.11/worktimer/biz/bis/',{method:'post', body:form})
+        fetch(API.variables.api,{method:'post', body:form})
         .then(res=>[res.blob(), res.headers.get('content-dispositon')])
         .then((blob)=>{
             blob[0].then(file=>{

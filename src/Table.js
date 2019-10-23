@@ -1,10 +1,11 @@
 import React,{useState} from 'react';
 import {Link} from 'react-router-dom';
 import Button from './Button';
+// import API from './API';
 
 function Table(props){
     
-    const [data,setReturnData] =useState([])
+    // const [data,setReturnData] =useState([])
     const deleteData=(value)=>{
         // let form = new FormData()
         // form.append('id', value.id)
@@ -13,7 +14,7 @@ function Table(props){
 
         // form.append('m','l')
         // form.append('uid','3')
-        // fetch('',{method:'post', body:form})
+        // fetch(API.variables.api,{method:'post', body:form})
         // .then(res=>res.json())
         // .then(rd=>{
         //     setReturnData(rd.rd)

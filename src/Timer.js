@@ -1,5 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import Button from './Button';
+import API from './API';
 
 function Timer(props){
     console.log(props)
@@ -50,7 +51,7 @@ function Timer(props){
         form.append('dd',pps)
         form.append('ssi',getcookie('_appcookie'))
         form.append('uid','3')
-        fetch('http://172.16.9.11/worktimer/biz/bis/',{method:'post', body:form})
+        fetch(API.variables.api,{method:'post', body:form})
         .then(res=>res.json())
         .then(rd=>{
         if (rd.success) {

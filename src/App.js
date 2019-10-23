@@ -4,6 +4,7 @@ import LoginForm from './LoginForm';
 import Dashboard from './Dashboard';
 import Timer from './Timer';
 import Report from './Report';
+import API from './API';
 
 
 function App(props) {
@@ -20,9 +21,9 @@ function App(props) {
     form.append('m',document.cookie.split('=')[1])
     
     if (document.cookie.split('=')[1] === undefined) {
-      fetch('http://172.16.9.11/worktimer/biz/bis/',{method:'post', body:form})
+      fetch(API.variables.api,{method:'post', body:form})
       .then(res=>res.json())
-          .then(rd=>{
+      .then(rd=>{
               console.log(rd)
               document.cookie="_appcookie="+rd.PHPSESSID
               

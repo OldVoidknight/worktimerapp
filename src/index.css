@@ -5,8 +5,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-color: #cbd5e0; */
+  background-image: url('./assets/cover.jpg');
   background-color: #cbd5e0;
+  background-size: 240vh ;
+  background-blend-mode: luminosity;
 }
+
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -258,12 +264,16 @@ a:hover{
 }
 
 .timetable td:last-child button{
-  background:red;
+  background:#9b2c2c;
   width:60px;
   font-weight: 1000;
   padding:0.6rem;
   margin:3px;
   cursor:pointer;
+}
+
+.timetable td:last-child a:first-child{
+  background-color: #2a4365;
 }
 
 /*MEDIA QUERY*/

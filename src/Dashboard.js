@@ -3,6 +3,7 @@ import Button from './Button';
 import Input from './Input';
 import Table from './Table';
 import PopUp from './PopUp';
+import API from './API';
 
 
 function Dashboard(props){
@@ -10,11 +11,9 @@ function Dashboard(props){
     const [data,setData]=useState([])
     const [showPop,setShowPop]=useState(false)
     
+    //Prototype For This App
     
     useEffect(()=>{
-
-
-
         let form=new FormData()
         let props;
 
@@ -30,7 +29,7 @@ function Dashboard(props){
         form.append('dd',props)
         form.append('ssi',getcookie('_appcookie'))
         form.append('uid','3')
-        fetch('http://172.16.9.11/worktimer/biz/bis/',{method:'post', body:form})
+        fetch(API.variables.api,{method:'post', body:form})
         .then(res=>res.json())
         .then(rd=>{
             setData(rd.sd)
@@ -80,14 +79,15 @@ function Dashboard(props){
         form.append('rph', value.rate)
         props='{"cus":"t","pho":"t","jtl":"t","rph":"n"}'
 
-        form.append('a','addcustomer')
+        form.append('a','add')
         form.append('s','ad')
         form.append('df','sp_jobtitle_add')
         form.append('m','l')
         form.append('dd',props)
         form.append('ssi',getcookie('_appcookie'))
         form.append('uid','3')
-        fetch('http://172.16.9.11/worktimer/biz/bis/',{method:'post', body:form})
+        
+        fetch(API.variables.api,{method:'post', body:form})
         .then(res=>res.json())
         .then(rd=>{
             console.log(rd)
@@ -106,7 +106,11 @@ function Dashboard(props){
     const logout=(e)=>{
         e.preventDefault()
         localStorage.removeItem('loggedinStatus')
-        props.history.push('/')
+        window.location.reload()
+        setTimeout(()=>
+        {
+        
+        },3000)
     }
      
     return (

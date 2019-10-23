@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import Input from './Input';
 import Footer from './Footer';
 import PopUp from './PopUp';
+import API from './API';
 
 function LoginForm(props){
 
@@ -46,10 +47,10 @@ function LoginForm(props){
         form.append('ctx','2')
         form.append('m','l')
         form.append('ssi',getcookie(name))
-        fetch('http://172.16.9.11/worktimer/biz/bis/',{method:'post', body:form})
+        props.history.push('/dashboard')
+        fetch(API.variables.api,{method:'post', body:form})
         .then(res=>res.json())
         .then(rd=>{
-            
             if (rd.success) {
                 props.history.push('/dashboard')
                 localStorage.setItem('loggedinStatus',JSON.stringify(true))
@@ -59,10 +60,7 @@ function LoginForm(props){
          });
         }
 
-    // const signup=(e)=>{
-    //     e.preventDefault()
-    // }
-
+   
     return(
         <div className='login-container'>
             {showPop? <PopUp text='Please check fields and try again' onClick={() => setShowPop(false)}/>:null}
@@ -75,7 +73,6 @@ function LoginForm(props){
                 </div>
                 <div className='login-buttons'>
                 <button onClick={validatelogin}>Sign In</button>
-                {/* <button onClick={signup}>Sign Up</button> */}
                 </div>
             </form>
             <Footer/>
