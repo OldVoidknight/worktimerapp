@@ -10,29 +10,29 @@ import API from './API';
 function App(props) {
   window.addEventListener('DOMContentLoaded',()=>{
 
-    if (!!localStorage.getItem('loggedinStatus')) {
-      props.history.push('/dashboard')
-    } else {
-      props.history.push('/')
-    }
+    // if (!!localStorage.getItem('loggedinStatus')) {
+    //   props.history.push('/dashboard')
+    // } else {
+    //   props.history.push('/')
+    // }
 
-    let form = new FormData()
-    form.append('s','')
-    form.append('m',document.cookie.split('=')[1])
+    // let form = new FormData()
+    // form.append('s','')
+    // form.append('m',document.cookie.split('=')[1])
     
-    if (document.cookie.split('=')[1] === undefined) {
-      fetch(API.variables.api,{method:'post', body:form})
-      .then(res=>res.json())
-      .then(rd=>{
-              console.log(rd)
-              document.cookie="_appcookie="+rd.PHPSESSID
+    // if (document.cookie.split('=')[1] === undefined) {
+    //   fetch(API.variables.api,{method:'post', body:form})
+    //   .then(res=>res.json())
+    //   .then(rd=>{
+    //           console.log(rd)
+    //           document.cookie="_appcookie="+rd.PHPSESSID
               
-          },error=>{
-              console.log(error)
-           });
-    } else{
+    //       },error=>{
+    //           console.log(error)
+    //        });
+    // } else{
 
-    }
+    // }
   }
 
 )

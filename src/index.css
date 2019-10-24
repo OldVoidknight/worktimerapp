@@ -95,15 +95,15 @@ a:hover{
 
 .popup{
   display:flex;
-  position: absolute;  
-  left: 15%;  
-  right: 65%;  
-  top: 35%;  
-  bottom: 35%;  
-  margin: auto;  
-  border-radius: 20px;  
-  background: #edf2f7;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */ 
   align-items: center;
   justify-content: center;
 }

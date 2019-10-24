@@ -48,16 +48,16 @@ function LoginForm(props){
         form.append('m','l')
         form.append('ssi',getcookie(name))
         props.history.push('/dashboard')
-        fetch(API.variables.api,{method:'post', body:form})
-        .then(res=>res.json())
-        .then(rd=>{
-            if (rd.success) {
-                props.history.push('/dashboard')
-                localStorage.setItem('loggedinStatus',JSON.stringify(true))
-            }
-        },error=>{
-            console.log(error)
-         });
+        // fetch(API.variables.api,{method:'post', body:form})
+        // .then(res=>res.json())
+        // .then(rd=>{
+        //     if (rd.success) {
+        //         props.history.push('/dashboard')
+        //         localStorage.setItem('loggedinStatus',JSON.stringify(true))
+        //     }
+        // },error=>{
+        //     console.log(error)
+        //  });
         }
 
    

@@ -55,16 +55,16 @@ function Report(props){
         form.append('dd',props)
         form.append('ssi',getcookie('_appcookie'))
         form.append('uid','3')
-        fetch(API.variables.api,{method:'post', body:form})
-        .then(res=>[res.blob(), res.headers.get('content-dispositon')])
-        .then((blob)=>{
-            blob[0].then(file=>{
-                console.log(file)
-                apipdf(file,blob[1])
-            })
-        },error=>{
-            console.log(error)
-         });
+        // fetch(API.variables.api,{method:'post', body:form})
+        // .then(res=>[res.blob(), res.headers.get('content-dispositon')])
+        // .then((blob)=>{
+        //     blob[0].then(file=>{
+        //         console.log(file)
+        //         apipdf(file,blob[1])
+        //     })
+        // },error=>{
+        //     console.log(error)
+        //  });
     }
 
 

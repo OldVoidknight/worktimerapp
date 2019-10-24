@@ -8,36 +8,34 @@ import API from './API';
 
 function Dashboard(props){
     const [value,setValue]=useState({e_name:'',phone:'',e_title:'',rate:''})
-    const [data,setData]=useState([])
+    const [data,setData]=useState([{customer:'Kofi',jobtitle:'Chef',rateperhour:'300',totaltime:0}])
     const [showPop,setShowPop]=useState(false)
     
-    //Prototype For This App
-    //Ok done
     
-    useEffect(()=>{
-        let form=new FormData()
-        let props;
+    // useEffect(()=>{
+    //     let form=new FormData()
+    //     let props;
 
-        form.append('recid','')
-        form.append('name','')
-        props='{"recid":"t","name":"t"}'
+    //     form.append('recid','')
+    //     form.append('name','')
+    //     props='{"recid":"t","name":"t"}'
         
 
-        form.append('a','find')
-        form.append('s','fd')
-        form.append('df','sp_jobschedule_find')
-        form.append('m','l')
-        form.append('dd',props)
-        form.append('ssi',getcookie('_appcookie'))
-        form.append('uid','3')
-        fetch(API.variables.api,{method:'post', body:form})
-        .then(res=>res.json())
-        .then(rd=>{
-            setData(rd.sd)
-        },error=>{
-            console.log(error)
-         });
-    },[])
+    //     form.append('a','find')
+    //     form.append('s','fd')
+    //     form.append('df','sp_jobschedule_find')
+    //     form.append('m','l')
+    //     form.append('dd',props)
+    //     form.append('ssi',getcookie('_appcookie'))
+    //     form.append('uid','3')
+    //     fetch(API.variables.api,{method:'post', body:form})
+    //     .then(res=>res.json())
+    //     .then(rd=>{
+    //         setData(rd.sd)
+    //     },error=>{
+    //         console.log(error)
+    //      });
+    // },[])
 
     const toReport=()=>{
         props.history.push('/report')
@@ -88,19 +86,19 @@ function Dashboard(props){
         form.append('ssi',getcookie('_appcookie'))
         form.append('uid','3')
         
-        fetch(API.variables.api,{method:'post', body:form})
-        .then(res=>res.json())
-        .then(rd=>{
-            console.log(rd)
-        if (rd.success) {
-            setData(rd.sd)
-            setValue({e_name:'',phone:'',e_title:'',rate:''})
-        } else {
-            alert("Transaction Incomplete")
-        }
-        },error=>{
-            console.log(error)
-         });
+        // fetch(API.variables.api,{method:'post', body:form})
+        // .then(res=>res.json())
+        // .then(rd=>{
+        //     console.log(rd)
+        // if (rd.success) {
+        //     setData(rd.sd)
+        //     setValue({e_name:'',phone:'',e_title:'',rate:''})
+        // } else {
+        //     alert("Transaction Incomplete")
+        // }
+        // },error=>{
+        //     console.log(error)
+        //  });
          togglePopup()
     }
     
