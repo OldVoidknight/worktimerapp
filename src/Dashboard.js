@@ -8,7 +8,7 @@ import API from './API';
 
 function Dashboard(props){
     const [value,setValue]=useState({e_name:'',phone:'',e_title:'',rate:''})
-    const [data,setData]=useState([{customer:'Kofi',jobtitle:'Chef',rateperhour:'300',totaltime:0}])
+    const [data,setData]=useState([{customer:'Kofi',jobtitle:'Chef',rateperhour:'300',totaltime:0},{customer:'Lucas',jobtitle:'Sales Agent',rateperhour:'200',totaltime:0}])
     const [showPop,setShowPop]=useState(false)
     
     
@@ -104,12 +104,13 @@ function Dashboard(props){
     
     const logout=(e)=>{
         e.preventDefault()
-        localStorage.removeItem('loggedinStatus')
-        window.location.reload()
-        setTimeout(()=>
-        {
+        props.history.push('/dashboard')
+        // localStorage.removeItem('loggedinStatus')
+        // window.location.reload()
+        // setTimeout(()=>
+        // {
         
-        },3000)
+        // },3000)
     }
      
     return (
