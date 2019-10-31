@@ -102,9 +102,9 @@ function Dashboard(props){
          togglePopup()
     }
     
-    const logout=(e)=>{
-        e.preventDefault()
-        props.history.push('/dashboard')
+    const logout=()=>{
+        // e.preventDefault()
+        props.history.push('/')
         // localStorage.removeItem('loggedinStatus')
         // window.location.reload()
         // setTimeout(()=>
